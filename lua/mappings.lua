@@ -7,7 +7,7 @@ function map(mode, lhs, rhs, opts)
 end
 
 -- Change leader to a comma
-vim.g.mapleader = ','
+vim.g.mapleader = ' '
 
 -- Disable arrow keys
 map('', '<up>', '<nop>')
@@ -22,6 +22,17 @@ map('n', '<C-w>', ':bw<CR>')
 map('n', '<leader>q', ':qa!<CR>')
 
 -- NvimTree
-map('n', '<leader>n', ':NvimTreeToggle<CR>')            -- open/close
-map('n', '<leader>f', ':NvimTreeRefresh<CR>')       -- refresh
+map('n', '<C-n>', ':NvimTreeToggle<CR>')        -- open/close
+map('n', '<C-r>', ':NvimTreeRefresh<CR>')       -- refresh
+
+
+-- Switch between split
+map('n', '<C-H>', '<C-W>h')
+map('n', '<C-J>', '<C-W>j')
+map('n', '<C-K>', '<C-W>k')
+map('n', '<C-L>', '<C-W>l')
+
+-- Switch between tab
+map('n', '<C-[>', ':BufferPrevious<CR>')
+map('n', '<C-]>', ':BufferNext<CR>')
 

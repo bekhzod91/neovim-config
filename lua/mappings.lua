@@ -16,7 +16,7 @@ map('', '<left>', '<nop>')
 map('', '<right>', '<nop>')
 
 -- Close current tab
-map('n', '<C-w>', ':bw<CR>')
+--map('n', '<C-w>', ':bw<CR>')
 
 -- Close all windows and exit from Neovim with <leader> and q
 map('n', '<leader>q', ':qa!<CR>')

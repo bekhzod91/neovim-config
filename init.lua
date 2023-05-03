@@ -15,13 +15,14 @@ require("plugins.nvim-tree").setup()
 -- Tabs configuration
 require("plugins.barbar").setup()
 
-
 -- LuaLine configration
 require('plugins.lualine').setup()
 
-
 -- Syntax highlighting configuration
 require('plugins.treesitter').setup()
+
+-- Telescope configuration
+require('plugins.telescope').setup()
 
 
 return require('packer').startup(function(use)
@@ -43,17 +44,25 @@ return require('packer').startup(function(use)
   use {
     'romgrk/barbar.nvim',
     requires = {
-	'kyazdani42/nvim-web-devicons'
-    },
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    }
   }
+
 
   -- Lualine package
   use {
     'nvim-lualine/lualine.nvim',
     requires = {
-	'kyazdani42/nvim-web-devicons', opt = true
+      'kyazdani42/nvim-web-devicons', opt = true
     }
   }
+
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   
   -- Syntax highlighting
   use {

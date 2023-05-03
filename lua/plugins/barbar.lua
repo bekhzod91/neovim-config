@@ -5,7 +5,7 @@ M.setup = function ()
     pattern = '*',
     callback = function()
       if vim.bo.filetype == 'NvimTree' then
-	      require'buffer.api'.set_offset(31, 'FileTree')
+        require'barbar.api'.set_offset(31, 'FileTree')
       end
     end
   })
@@ -14,7 +14,7 @@ M.setup = function ()
     pattern = '*',
     callback = function()
       if vim.fn.expand('<afile>'):match('NvimTree') then
-	      require'buffer.api'.set_offset(0)
+	      require'barbar.api'.set_offset(0)
       end
     end
   })

@@ -1,19 +1,19 @@
 function map(mode, lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 -- Change leader to a comma
 vim.g.mapleader = ' '
 
 -- Disable arrow keys
-map('', '<up>', '<nop>')
-map('', '<down>', '<nop>')
-map('', '<left>', '<nop>')
-map('', '<right>', '<nop>')
+map("n", "<C-Up>", ":resize -2<CR>")
+map("n", "<C-Down>", ":resize +2<CR>")
+map("n", "<C-Left>", ":vertical resize -2<CR>")
+map("n", "<C-Right>", ":vertical resize +2<CR>")
 
 -- Close current tab
 map('n', '<C-w>', ':bw<CR>')
@@ -25,17 +25,23 @@ map('n', '<leader>q', ':qa!<CR>')
 map('n', '<C-n>', ':NvimTreeToggle<CR>')        -- open/close
 map('n', '<C-r>', ':NvimTreeRefresh<CR>')       -- refresh
 
-
 -- Switch between split
 map('n', '<C-H>', '<C-W>h')
 map('n', '<C-J>', '<C-W>j')
 map('n', '<C-K>', '<C-W>k')
 map('n', '<C-L>', '<C-W>l')
 
--- Switch between tab
-map('n', '<C-[>', ':BufferPrevious<CR>')
-map('n', '<C-]>', ':BufferNext<CR>')
+-- Move selected line / block of text in visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Move selected line / block of text in visual mode
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- Switch between tab
+map("n", "<TAB>", ":bn<CR>")
+map("n", "<S-TAB>", ":bp<CR>")
 
 -- Telescope
 local builtin = require('telescope.builtin')

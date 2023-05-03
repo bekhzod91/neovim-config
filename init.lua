@@ -24,6 +24,11 @@ require('plugins.treesitter').setup()
 -- Telescope configuration
 require('plugins.telescope').setup()
 
+-- Telescope configuration
+require('plugins.telescope').setup()
+
+-- Git configuration
+require('plugins.gitsigns').setup()
 
 return require('packer').startup(function(use)
   -- Packar
@@ -49,7 +54,6 @@ return require('packer').startup(function(use)
     }
   }
 
-
   -- Lualine package
   use {
     'nvim-lualine/lualine.nvim',
@@ -58,9 +62,12 @@ return require('packer').startup(function(use)
     }
   }
 
+  -- Telescope package
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {
+      {'nvim-lua/plenary.nvim'}
+    }
   }
 
   
@@ -68,6 +75,11 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
+  }
+  
+  -- Git package
+  use {
+    'lewis6991/gitsigns.nvim'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim

@@ -10,20 +10,20 @@ end
 vim.g.mapleader = ' '
 
 -- Disable arrow keys
-map("n", "<C-Up>", ":resize -2<CR>")
-map("n", "<C-Down>", ":resize +2<CR>")
-map("n", "<C-Left>", ":vertical resize -2<CR>")
-map("n", "<C-Right>", ":vertical resize +2<CR>")
+--map("n", "<M-Up>", ":resize -2<CR>")
+--map("n", "<M-Down>", ":resize +2<CR>")
+--map("n", "<M-Left>", ":vertical resize -2<CR>")
+--map("n", "<M-Right>", ":vertical resize +2<CR>")
 
 -- Close current tab
-map('n', '<C-w>', ':bw<CR>')
+--map('n', '<C-w>', ':bw<CR>')
 
 -- Close all windows and exit from Neovim with <leader> and q
 map('n', '<leader>q', ':qa!<CR>')
 
 -- NvimTree
-map('n', '<C-n>', ':NvimTreeToggle<CR>')        -- open/close
-map('n', '<C-r>', ':NvimTreeRefresh<CR>')       -- refresh
+map('n', '<leader>n', ':NvimTreeToggle<CR>')        -- open/close
+map('n', '<leader>r', ':NvimTreeRefresh<CR>')       -- refresh
 
 -- Switch between split
 map('n', '<C-H>', '<C-W>h')
@@ -44,10 +44,12 @@ map("n", "<TAB>", ":bn<CR>")
 map("n", "<S-TAB>", ":bp<CR>")
 
 -- Telescope
-local builtin = require('telescope.builtin')
-
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+map("n", "<leader>ff", "<cmd> Telescope find_files <CR>")
+map("n", "<leader>fa", "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>")
+map("n", "<leader>fe", "<cmd> Telescope file_browser <CR>")
+map("n", "<leader>fw", "<cmd> Telescope live_grep <CR>")
+map("n", "<leader>fb", "<cmd> Telescope buffers <CR>")
+map("n", "<leader>fh", "<cmd> Telescope help_tags <CR>")
+map("n", "<leader>fo", "<cmd> Telescope oldfiles <CR>")
+map("n", "<leader>fc", "<cmd> Telescope colorschemes <CR>")
 

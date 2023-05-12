@@ -2,7 +2,6 @@ local packer_bootstrap = require("plugins.packer").ensure_packer()
 
 require("mappings")
 
-
 -- Linenumber configration
 vim.cmd[[set relativenumber]]
 
@@ -80,6 +79,10 @@ return require('packer').startup(function(use)
   -- Git package
   use {
     'lewis6991/gitsigns.nvim'
+  }
+
+  use {
+    'mg979/vim-visual-multi'
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
